@@ -1,31 +1,40 @@
 /**
- * Navigation — Warm Research Studio
- * Sticky top nav: transparent → navy on scroll
- * Logo: "AC" monogram + name | Links: smooth scroll anchors
+ * Navigation — Clean Editorial Minimal
+ * Centered nav with thin horizontal rules on each side
+ * Links: small caps, letter-spaced
+ * No background until scrolled (then white with subtle shadow)
  */
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+
+interface NavLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [location] = useLocation();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const isHome = location === "/";
+  const isCaseStudy = location === "/case-study";
+  const isResume = location === "/resume";
 
-  const navLinks = isHome
-    ? [
-        { label: "About", href: "#about" },
-        { label: "Projects", href: "#projects" },
-        { label: "Case Study", href: "#case-study-preview" },
-      ]
-    : [{ label: "← Back to Portfolio", href: "/" }];
+  const homeLinks: NavLink[] = [
+    { label: "Work", href: "#work" },
+    { label: "About", href: "#about" },
+    { label: "Resume", href: "/resume" },
+  ];
+
+  const subLinks: NavLink[] = [
+    { label: "Work", href: "/" },
+    { label: "About", href: "/#about" },
+    { label: "Resume", href: "/resume" },
+  ];
+
+  const navLinks = isHome ? homeLinks : subLinks;
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
@@ -35,93 +44,111 @@ export default function Navigation() {
     }
   };
 
+  // Track scroll for background
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || menuOpen
-          ? "bg-[#2C3A52] shadow-lg"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_1px_0_0_#e5e5e5]" : "border-b border-[#e5e5e5]"
       }`}
     >
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between max-w-6xl">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-sm bg-[#C4A882] flex items-center justify-center">
-            <span className="font-['Cormorant_Garamond'] font-bold text-[#2C3A52] text-sm tracking-wider">
-              AC
-            </span>
-          </div>
-          <span className="font-['Source_Sans_3'] text-white text-sm font-medium tracking-wide opacity-90 group-hover:opacity-100 transition-opacity">
-            Allison Cassing
-          </span>
-        </Link>
+      <div className="container mx-auto px-6 max-w-4xl">
+        <div className="flex items-center justify-between py-5">
+          {/* Left rule */}
+          <div className="hidden md:block flex-1 h-px bg-[#e5e5e5]" />
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) =>
-            link.href.startsWith("#") ? (
-              <button
-                key={link.label}
-                onClick={() => handleNavClick(link.href)}
-                className="font-['Source_Sans_3'] text-sm text-white/80 hover:text-[#C4A882] transition-colors tracking-wide"
-              >
-                {link.label}
-              </button>
-            ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="font-['Source_Sans_3'] text-sm text-white/80 hover:text-[#C4A882] transition-colors tracking-wide"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
-        </nav>
+          {/* Desktop Nav — centered */}
+          <nav className="hidden md:flex items-center gap-10 px-10">
+            {navLinks.map((link) => {
+              const isActive =
+                (link.href === "/" && isHome) ||
+                (link.href === "/resume" && isResume) ||
+                (link.href === "/case-study" && isCaseStudy);
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-white p-1"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <div className="w-5 flex flex-col gap-1">
-            <span
-              className={`block h-0.5 bg-white transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`}
-            />
-            <span
-              className={`block h-0.5 bg-white transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block h-0.5 bg-white transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
-            />
+              if (link.href.startsWith("#")) {
+                return (
+                  <button
+                    key={link.label}
+                    onClick={() => handleNavClick(link.href)}
+                    className={`text-[11px] tracking-[0.15em] uppercase font-medium transition-colors ${
+                      isActive
+                        ? "text-[#B8956A]"
+                        : "text-[#1a1a1a] hover:text-[#B8956A]"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`text-[11px] tracking-[0.15em] uppercase font-medium transition-colors ${
+                    isActive
+                      ? "text-[#B8956A]"
+                      : "text-[#1a1a1a] hover:text-[#B8956A]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right rule */}
+          <div className="hidden md:block flex-1 h-px bg-[#e5e5e5]" />
+
+          {/* Mobile: name + hamburger */}
+          <div className="flex md:hidden items-center justify-between w-full">
+            <Link href="/" className="text-[11px] tracking-[0.15em] uppercase font-medium text-[#1a1a1a]">
+              Allison Cassing
+            </Link>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="p-1 text-[#1a1a1a]"
+              aria-label="Toggle menu"
+            >
+              <div className="w-5 flex flex-col gap-1.5">
+                <span className={`block h-px bg-[#1a1a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+                <span className={`block h-px bg-[#1a1a1a] transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+                <span className={`block h-px bg-[#1a1a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+              </div>
+            </button>
           </div>
-        </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#2C3A52] border-t border-white/10 px-6 pb-4">
-          {navLinks.map((link) =>
-            link.href.startsWith("#") ? (
-              <button
-                key={link.label}
-                onClick={() => handleNavClick(link.href)}
-                className="block w-full text-left py-3 font-['Source_Sans_3'] text-sm text-white/80 hover:text-[#C4A882] transition-colors border-b border-white/10 last:border-0"
-              >
-                {link.label}
-              </button>
-            ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block py-3 font-['Source_Sans_3'] text-sm text-white/80 hover:text-[#C4A882] transition-colors border-b border-white/10 last:border-0"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+        <div className="md:hidden border-t border-[#e5e5e5] bg-white">
+          <div className="container mx-auto px-6 py-4 flex flex-col gap-1">
+            {navLinks.map((link) =>
+              link.href.startsWith("#") ? (
+                <button
+                  key={link.label}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-left py-2.5 text-[11px] tracking-[0.15em] uppercase font-medium text-[#1a1a1a] hover:text-[#B8956A] transition-colors border-b border-[#f0f0f0] last:border-0"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="py-2.5 text-[11px] tracking-[0.15em] uppercase font-medium text-[#1a1a1a] hover:text-[#B8956A] transition-colors border-b border-[#f0f0f0] last:border-0"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </div>
         </div>
       )}
     </header>

@@ -1,10 +1,11 @@
-/* 
- * Design Philosophy: Warm Research Studio
- * - Deep navy (#2C3A52) as primary dark tone
- * - Warm sand/tan (#C4A882) as accent — from the PDF diagonal line
- * - Off-white (#FAF8F4) background
- * - Cormorant Garamond for display headings
- * - Source Sans 3 for body text
+/*
+ * Design Philosophy: Clean Editorial Minimal
+ * - Pure white background, near-black text
+ * - DM Sans for all text — geometric, clean, modern
+ * - Single accent: warm sand (#B8956A) for hover/active states only
+ * - No gradients, no textures, no decorative backgrounds
+ * - Thin horizontal rules as the only structural dividers
+ * - Generous whitespace, content-first
  */
 
 @import "tailwindcss";
@@ -32,44 +33,40 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-navy: var(--navy);
-  --color-sand: var(--sand);
-  --color-sand-light: var(--sand-light);
 }
 
 :root {
-  --radius: 0.375rem;
-  /* Warm Research Studio palette */
-  --navy: oklch(0.29 0.05 240);           /* #2C3A52 */
-  --navy-dark: oklch(0.22 0.05 240);      /* darker navy */
-  --sand: oklch(0.72 0.07 75);            /* #C4A882 */
-  --sand-light: oklch(0.85 0.04 75);      /* lighter sand */
-  --off-white: oklch(0.98 0.01 80);       /* #FAF8F4 */
-  --slate: oklch(0.52 0.03 240);          /* #6B7A8D */
+  --radius: 0.25rem;
 
-  --background: oklch(0.98 0.01 80);      /* warm off-white */
-  --foreground: oklch(0.22 0.03 240);     /* near-black navy */
+  /* Clean minimal palette */
+  --charcoal: #1a1a1a;
+  --mid-gray: #666666;
+  --light-gray: #999999;
+  --rule-gray: #e5e5e5;
+  --sand: #B8956A;
+  --sand-hover: #9a7a54;
+
+  --background: oklch(1 0 0);           /* pure white */
+  --foreground: oklch(0.12 0 0);        /* near-black */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.03 240);
+  --card-foreground: oklch(0.12 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.03 240);
-  --primary: oklch(0.29 0.05 240);        /* navy */
-  --primary-foreground: oklch(0.98 0.01 80);
-  --secondary: oklch(0.94 0.02 80);
-  --secondary-foreground: oklch(0.29 0.05 240);
-  --muted: oklch(0.94 0.01 80);
-  --muted-foreground: oklch(0.52 0.03 240);
-  --accent: oklch(0.72 0.07 75);          /* sand */
-  --accent-foreground: oklch(0.22 0.03 240);
+  --popover-foreground: oklch(0.12 0 0);
+  --primary: oklch(0.12 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.12 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.65 0.08 65);        /* sand */
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.88 0.02 80);
-  --input: oklch(0.88 0.02 80);
-  --ring: oklch(0.72 0.07 75);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.65 0.08 65);
 }
 
 @layer base {
@@ -81,10 +78,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Source Sans 3', sans-serif;
-  }
-  h1, h2, h3, h4 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -103,6 +98,7 @@
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    max-width: 900px;
   }
 
   .flex {
@@ -119,34 +115,15 @@
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 3rem;
-      padding-right: 3rem;
-      max-width: 1280px;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
     }
   }
 
-  /* Navy section utility */
-  .section-navy {
-    background-color: oklch(0.29 0.05 240);
-    color: oklch(0.98 0.01 80);
-  }
-
-  /* Sand accent line */
-  .accent-line {
-    height: 2px;
-    background: linear-gradient(90deg, oklch(0.72 0.07 75), oklch(0.85 0.04 75));
-  }
-
-  /* Diagonal separator */
-  .diagonal-sep {
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Animate on scroll */
+  /* Fade-up scroll animation */
   .fade-up {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
   .fade-up.visible {
