@@ -15,6 +15,7 @@ const projects = [
   {
     id: "01",
     title: "Segmenting Professional Certification Customers",
+    summary: "20 interviews · Customer segmentation framework · Marketing & product recommendations",
     tags: ["Qualitative Research", "Customer Segmentation", "Interviews"],
     sector: "Education · Software",
     overview:
@@ -32,6 +33,7 @@ const projects = [
   {
     id: "02",
     title: "Creating a Research Repository from Scratch",
+    summary: "Repository design · Standardized templates & tagging system · Hands-on team training",
     tags: ["Research Operations", "Training & Enablement", "Information Architecture"],
     sector: "Manufacturing",
     overview:
@@ -47,6 +49,7 @@ const projects = [
   {
     id: "03",
     title: "Uncovering Why Customers Call Support",
+    summary: "Hybrid call center analysis · AI-assisted synthesis · Reframed communication strategy",
     tags: ["Call Center Analysis", "AI-Assisted Analysis", "Communication Strategy"],
     sector: "Insurance Tech · FinTech",
     overview:
@@ -62,6 +65,7 @@ const projects = [
   {
     id: "04",
     title: "Launching a 0 to 1 Digital Wellness Platform",
+    summary: "20 exploratory interviews · MVP usability testing · Product & go-to-market recommendations",
     tags: ["Market Research", "Usability Testing", "MVP Validation"],
     sector: "Consumer Goods · Wellness",
     overview:
@@ -78,6 +82,7 @@ const projects = [
   {
     id: "05",
     title: "Understanding Online Game Facilitators' Needs",
+    summary: "12 interviews · Thematic analysis · Feature prioritization recommendations",
     tags: ["Qualitative Research", "Thematic Analysis", "Product Strategy"],
     sector: "Gaming · Tech",
     overview:
@@ -96,7 +101,7 @@ const projects = [
 
 // ─── Project Card ───────────────────────────────────────────────────────────
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -115,7 +120,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         {/* Right: content */}
         <div className="flex-1 min-w-0">
           {/* Title + sector */}
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-1.5">
             <h3 className="text-[17px] font-semibold text-[#1a1a1a] leading-snug group-hover:text-[#B8956A] transition-colors">
               {project.title}
             </h3>
@@ -123,6 +128,10 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               {project.sector}
             </span>
           </div>
+          {/* One-line summary */}
+          <p className="text-[12px] text-[#B8956A] mb-3 tracking-[0.02em]">
+            {project.summary}
+          </p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-4">
