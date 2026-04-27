@@ -15,7 +15,7 @@ const projects = [
   {
     id: "01",
     title: "Segmenting Professional Certification Customers",
-    tags: ["Semi-Structured Interviews", "Customer Segmentation", "Thematic Analysis"],
+    tags: ["Interviews", "Customer Segmentation", "Thematic Analysis"],
     sector: "Education",
     overview:
       "A product marketing team needed to understand their current and prospective customers for professional digital skills certification and their motivations for seeking certification. This research aimed to inform customer targeting and improve the entire certification experience, from discovery to test completion.",
@@ -62,7 +62,7 @@ const projects = [
   {
     id: "04",
     title: "Launching a 0 to 1 Digital Wellness Platform",
-    tags: ["Exploratory Research", "Usability Testing", "Market Validation"],
+    tags: ["Generative Research", "Usability Testing", "Market Validation"],
     sector: "Health",
     overview:
       "A consumer goods company sought to bring Ayurvedic wellness to the US market through a digital product. The project began with exploratory research to understand target segments and continued through prototype testing of the platform MVP. The research needed to both validate market opportunity and ensure the digital platform's usability for their target audience.",
@@ -78,7 +78,7 @@ const projects = [
   {
     id: "05",
     title: "Understanding Online Game Facilitators' Needs",
-    tags: ["Semi-Structured Interviews", "Thematic Analysis", "Feature Prioritization"],
+    tags: ["Interviews", "Thematic Analysis", "Feature Prioritization"],
     sector: "Virtual Tabletop",
     overview:
       "A virtual platform for playing tabletop games like Dungeons & Dragons needed to understand the challenges and motivations of Game Masters (GMs), who play a key role in leading gameplay and often drive purchase decisions.",
@@ -307,7 +307,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-2 mb-8">
                   {[
-                    "Semi-Structured Interviews",
+                    "Interviews",
                     "Thematic Analysis",
                     "Usability Testing",
                     "Survey Design",
