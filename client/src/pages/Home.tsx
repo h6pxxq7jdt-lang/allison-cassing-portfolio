@@ -15,7 +15,6 @@ const projects = [
   {
     id: "01",
     title: "Segmenting Professional Certification Customers",
-    summary: "20 interviews · Customer segmentation framework · Marketing & product recommendations",
     tags: ["Qualitative Research", "Customer Segmentation", "Interviews"],
     sector: "Education · Software",
     overview:
@@ -33,7 +32,6 @@ const projects = [
   {
     id: "02",
     title: "Creating a Research Repository from Scratch",
-    summary: "Repository design · Standardized templates & tagging system · Hands-on team training",
     tags: ["Research Operations", "Training & Enablement", "Information Architecture"],
     sector: "Manufacturing",
     overview:
@@ -49,9 +47,8 @@ const projects = [
   {
     id: "03",
     title: "Uncovering Why Customers Call Support",
-    summary: "Hybrid call center analysis · AI-assisted synthesis · Reframed communication strategy",
     tags: ["Call Center Analysis", "AI-Assisted Analysis", "Communication Strategy"],
-    sector: "Insurance Tech · FinTech",
+    sector: "Insurance",
     overview:
       "A company was looking to reduce their call center volume related to RMDs — mandatory withdrawals that retirement account holders must take annually after age 73. Despite sending annual letters to notify customers about their RMD obligations, the company received a high volume of related phone calls. The initial assumption was that customers were confused about the concept of RMDs, and early attempts to clarify the explanation in these letters did not reduce call volume.",
     outcome:
@@ -65,9 +62,8 @@ const projects = [
   {
     id: "04",
     title: "Launching a 0 to 1 Digital Wellness Platform",
-    summary: "20 exploratory interviews · MVP usability testing · Product & go-to-market recommendations",
     tags: ["Market Research", "Usability Testing", "MVP Validation"],
-    sector: "Consumer Goods · Wellness",
+    sector: "Health",
     overview:
       "A consumer goods company sought to bring Ayurvedic wellness to the US market through a digital product. The project began with exploratory research to understand target segments and continued through prototype testing of the platform MVP. The research needed to both validate market opportunity and ensure the digital platform's usability for their target audience.",
     outcome:
@@ -82,9 +78,8 @@ const projects = [
   {
     id: "05",
     title: "Understanding Online Game Facilitators' Needs",
-    summary: "12 interviews · Thematic analysis · Feature prioritization recommendations",
     tags: ["Qualitative Research", "Thematic Analysis", "Product Strategy"],
-    sector: "Gaming · Tech",
+    sector: "Virtual Tabletop",
     overview:
       "A virtual platform for playing tabletop games like Dungeons & Dragons needed to understand the challenges and motivations of Game Masters (GMs), who play a key role in leading gameplay and often drive purchase decisions.",
     outcome:
@@ -128,12 +123,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
               {project.sector}
             </span>
           </div>
-          {/* One-line summary */}
-          <p className="text-[12px] text-[#B8956A] mb-3 tracking-[0.02em]">
-            {project.summary}
-          </p>
-
-          {/* Tags */}
+          {/* Tags — methods only */}
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag) => (
               <span
