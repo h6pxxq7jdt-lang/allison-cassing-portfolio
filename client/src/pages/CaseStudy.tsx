@@ -1,6 +1,8 @@
 /**
  * Case Study Page — Clean Editorial Minimal
  * Design: white bg, DM Sans, near-black text, sand accent
+ * Content: exact language from slides
+ * Structure: Overview & Outcomes → Approach → Key Findings → Recommendations → Reflections → My Role
  */
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
@@ -13,7 +15,7 @@ export default function CaseStudy() {
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero */}
+      {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="pt-36 pb-16 border-b border-[#e5e5e5]">
         <div className="container mx-auto px-6 max-w-4xl">
           <Link
@@ -29,33 +31,30 @@ export default function CaseStudy() {
           <h1 className="text-[36px] md:text-[52px] font-bold text-[#1a1a1a] leading-tight mb-8 max-w-2xl">
             Understanding Connected Fitness Drop-Off
           </h1>
-          <div className="flex flex-wrap gap-10">
-            {[
-              { value: "25", label: "Interviews" },
-              { value: "3", label: "Research Phases" },
-              { value: "4 months", label: "Duration" },
-              { value: "Contract", label: "Engagement Type" },
-            ].map((s) => (
-              <div key={s.label}>
-                <div className="text-[24px] font-bold text-[#1a1a1a]">{s.value}</div>
-                <div className="text-[10px] tracking-[0.12em] uppercase text-[#999] mt-0.5">{s.label}</div>
-              </div>
+          {/* Method tags — replacing stats block */}
+          <div className="flex flex-wrap gap-2">
+            {["Semi-Structured Interviews", "Data Analysis", "Survey"].map((tag) => (
+              <span
+                key={tag}
+                className="text-[10px] tracking-[0.08em] uppercase text-[#999] border border-[#e5e5e5] px-2.5 py-1"
+              >
+                {tag}
+              </span>
             ))}
           </div>
         </div>
       </section>
 
       <div ref={bodyRef}>
-        {/* Overview + Outcomes */}
+
+        {/* ── Overview & Outcomes ───────────────────────────────────── */}
         <section className="py-16 border-b border-[#e5e5e5]">
           <div className="container mx-auto px-6 max-w-4xl grid md:grid-cols-2 gap-12">
             <div className="fade-up">
               <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Overview</p>
-              <h2 className="text-[22px] font-bold text-[#1a1a1a] mb-4">The Challenge</h2>
               <p className="text-[14px] text-[#555] leading-relaxed mb-4">
-                A connected fitness company launched a $2,000+ rowing machine with gamified workout software in May 2020. Several months after launch, they noticed monthly usage per account declining steadily.
+                A connected fitness company launched a $2,000+ rowing machine with gamified workout software in May 2020. Several months after launch, they noticed concerning trends in workout metrics, with monthly usage per account declining steadily. The COO initiated research to understand:
               </p>
-              <p className="text-[13px] text-[#666] leading-relaxed mb-3">The COO initiated research to understand:</p>
               <ul className="space-y-1.5">
                 {[
                   "Patterns in user activity before dropping off",
@@ -72,8 +71,9 @@ export default function CaseStudy() {
             </div>
             <div className="fade-up" style={{ transitionDelay: "80ms" }}>
               <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Outcomes</p>
-              <h2 className="text-[22px] font-bold text-[#1a1a1a] mb-4">What We Achieved</h2>
-              <p className="text-[13px] text-[#666] leading-relaxed mb-3">While not identifying any simple fixes for usage decline, this research:</p>
+              <p className="text-[13px] text-[#555] leading-relaxed mb-3">
+                While not identifying any simple fixes for usage decline, this research:
+              </p>
               <ul className="space-y-1.5">
                 {[
                   "Provided visibility into previously unstudied user segments",
@@ -92,118 +92,121 @@ export default function CaseStudy() {
           </div>
         </section>
 
-        {/* Methodology */}
+        {/* ── Approach ─────────────────────────────────────────────── */}
         <section className="py-16 border-b border-[#e5e5e5]">
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="fade-up mb-10">
               <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Approach</p>
-              <h2 className="text-[22px] font-bold text-[#1a1a1a] mb-3">Research Methodology</h2>
               <p className="text-[14px] text-[#555] leading-relaxed max-w-2xl">
                 The team had historically heard from two extreme user groups: highly engaged users active on social media and dissatisfied customers seeking returns. This project aimed to understand the middle ground — users at risk of churning based on usage patterns.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  num: "01",
-                  title: "Data Analysis & Segmentation",
-                  body: 'I began by defining and analyzing two key user segments: "Tricklers" (users averaging 2+ workout days/week in first four weeks, then less than 2 days/week) and Low Usage Users (using the rower less than 30% of owned weeks — approximately 30% of total users).',
-                  note: null,
-                },
-                {
-                  num: "02",
-                  title: "Qualitative Research",
-                  body: "Conducted 25 one-on-one semi-structured interviews: 11 with tricklers, 14 with low usage users. Sessions lasted 30–60 minutes, with participants compensated with $50 Amazon gift cards. Focus areas: overall fitness routines, specific rower experiences, COVID-19 impact, and recent workout patterns.",
-                  note: null,
-                },
-                {
-                  num: "03",
-                  title: "Quantitative Validation",
-                  body: "Developed a survey to validate interview findings across the larger low usage population. Despite low response rates (2%), the data provided directional insights for prioritization.",
-                  note: "The research approach remained adaptive throughout — findings from qualitative phases shaped the direction of subsequent work.",
-                },
-              ].map((phase, i) => (
-                <div
-                  key={phase.num}
-                  className="fade-up border border-[#e5e5e5] p-6"
-                  style={{ transitionDelay: `${i * 80}ms` }}
-                >
-                  <div className="flex items-baseline gap-3 mb-3">
-                    <span className="text-[11px] tracking-[0.1em] text-[#B8956A] font-medium">{phase.num}</span>
-                    <h3 className="text-[14px] font-semibold text-[#1a1a1a]">{phase.title}</h3>
-                  </div>
-                  <p className="text-[13px] text-[#555] leading-relaxed">{phase.body}</p>
-                  {phase.note && (
-                    <div className="mt-4 pt-4 border-t border-[#f0f0f0]">
-                      <p className="text-[10px] tracking-[0.1em] uppercase text-[#B8956A] font-medium mb-1">Note on Agility</p>
-                      <p className="text-[12px] text-[#666] leading-relaxed italic">{phase.note}</p>
-                    </div>
-                  )}
+              {/* Data Analysis */}
+              <div className="fade-up border border-[#e5e5e5] p-6" style={{ transitionDelay: "0ms" }}>
+                <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-3">Data Analysis & Segmentation</h3>
+                <p className="text-[13px] text-[#555] leading-relaxed mb-3">
+                  I began by defining and analyzing two key user segments:
+                </p>
+                <ul className="space-y-2">
+                  <li className="text-[12px] text-[#555] leading-relaxed">
+                    <span className="font-medium text-[#1a1a1a]">"Tricklers"</span> — Users who started strong but reduced usage over time. Defined as averaging 2+ workout days/week in the first four weeks, followed by less than 2 days/week in subsequent periods.
+                  </li>
+                  <li className="text-[12px] text-[#555] leading-relaxed">
+                    <span className="font-medium text-[#1a1a1a]">Low Usage Users</span> — Using the rower less than 30% of owned weeks; approximately 30% of total users.
+                  </li>
+                </ul>
+              </div>
+              {/* Qualitative */}
+              <div className="fade-up border border-[#e5e5e5] p-6" style={{ transitionDelay: "80ms" }}>
+                <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-3">Qualitative Research</h3>
+                <p className="text-[13px] text-[#555] leading-relaxed mb-3">
+                  Conducted 25 one-on-one semi-structured interviews — 11 with tricklers and 14 with low usage users. Sessions lasted 30–60 minutes, with participants compensated with $50 Amazon gift cards.
+                </p>
+                <p className="text-[11px] tracking-[0.08em] uppercase text-[#bbb] font-medium mb-2">Interview Focus Areas</p>
+                <ul className="space-y-1">
+                  {[
+                    "Overall fitness routines and goals",
+                    "Specific experiences with the rower",
+                    "COVID-19's impact on exercise habits",
+                    "Recent workout patterns",
+                  ].map((item) => (
+                    <li key={item} className="text-[12px] text-[#666] flex gap-1.5">
+                      <span className="text-[#ccc] flex-shrink-0">·</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* Survey */}
+              <div className="fade-up border border-[#e5e5e5] p-6" style={{ transitionDelay: "160ms" }}>
+                <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-3">Quantitative Validation</h3>
+                <p className="text-[13px] text-[#555] leading-relaxed mb-4">
+                  Developed a survey to validate interview findings across the larger low usage population. Despite low response rates (2%), the data provided directional insights for prioritization.
+                </p>
+                <div className="pt-4 border-t border-[#f0f0f0]">
+                  <p className="text-[11px] tracking-[0.08em] uppercase text-[#B8956A] font-medium mb-1">Note on Agility</p>
+                  <p className="text-[12px] text-[#666] leading-relaxed italic">
+                    The research approach remained adaptive throughout — findings from qualitative work shaped the direction of subsequent efforts.
+                  </p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Findings */}
+        {/* ── Key Findings ─────────────────────────────────────────── */}
         <section className="py-16 bg-[#f9f9f9] border-b border-[#e5e5e5]">
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="fade-up mb-10">
               <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Key Findings</p>
-              <h2 className="text-[22px] font-bold text-[#1a1a1a]">What We Learned</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: "Trickler Segment Insights",
-                  items: [
+              <div className="fade-up bg-white border border-[#e5e5e5] p-6">
+                <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-4">Trickler Segment</h3>
+                <ul className="space-y-2">
+                  {[
                     "Usage decline often reflected intentional adjustment, not dissatisfaction",
                     "Users started with high enthusiasm but settled into personally sustainable routines",
                     "This segment showed high satisfaction despite reduced usage",
-                  ],
-                },
-                {
-                  title: "Low Usage Segment Insights",
-                  items: [
+                  ].map((item) => (
+                    <li key={item} className="text-[13px] text-[#555] flex gap-2">
+                      <span className="text-[#B8956A] flex-shrink-0">—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="fade-up bg-white border border-[#e5e5e5] p-6" style={{ transitionDelay: "80ms" }}>
+                <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-4">Low Usage Segment</h3>
+                <ul className="space-y-2">
+                  {[
                     "More likely to report challenges with both exercise generally and the rower specifically",
                     "Time constraints and competing priorities were key barriers",
                     "Difficulty level for new rowers created friction",
                     "Initial workout experiences often felt challenging and frustrating",
-                  ],
-                },
-              ].map((seg, i) => (
-                <div
-                  key={seg.title}
-                  className="fade-up bg-white border border-[#e5e5e5] p-6"
-                  style={{ transitionDelay: `${i * 80}ms` }}
-                >
-                  <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-4">{seg.title}</h3>
-                  <ul className="space-y-2">
-                    {seg.items.map((item) => (
-                      <li key={item} className="text-[13px] text-[#555] flex gap-2">
-                        <span className="text-[#B8956A] flex-shrink-0">—</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                  ].map((item) => (
+                    <li key={item} className="text-[13px] text-[#555] flex gap-2">
+                      <span className="text-[#B8956A] flex-shrink-0">—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Recommendations */}
+        {/* ── Recommendations ──────────────────────────────────────── */}
         <section className="py-16 border-b border-[#e5e5e5]">
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="fade-up mb-10">
               <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Recommendations</p>
-              <h2 className="text-[22px] font-bold text-[#1a1a1a]">Actionable Next Steps</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-10">
               {[
                 {
                   label: "Immediate Actions",
-                  title: "Short-Term Priorities",
                   items: [
                     "Prioritize improving new rower onboarding experience",
                     "Focus on making initial workouts feel more achievable",
@@ -211,8 +214,7 @@ export default function CaseStudy() {
                   ],
                 },
                 {
-                  label: "Long-Term Strategic",
-                  title: "Strategic Recommendations",
+                  label: "Long-term Strategic",
                   items: [
                     "Create success metrics for new users' first experiences",
                     "Develop strategies to help users prioritize rowing among competing activities",
@@ -221,8 +223,7 @@ export default function CaseStudy() {
                 },
               ].map((rec, i) => (
                 <div key={rec.label} className="fade-up" style={{ transitionDelay: `${i * 80}ms` }}>
-                  <p className="text-[10px] tracking-[0.15em] uppercase text-[#999] font-medium mb-1">{rec.label}</p>
-                  <h3 className="text-[16px] font-semibold text-[#1a1a1a] mb-4">{rec.title}</h3>
+                  <p className="text-[11px] tracking-[0.12em] uppercase text-[#bbb] font-medium mb-3">{rec.label}</p>
                   <ol className="space-y-2">
                     {rec.items.map((item, idx) => (
                       <li key={item} className="text-[13px] text-[#555] flex gap-3">
@@ -237,44 +238,8 @@ export default function CaseStudy() {
           </div>
         </section>
 
-        {/* My Role */}
-        <section className="py-16 border-b border-[#e5e5e5]">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <div className="fade-up grid md:grid-cols-2 gap-12">
-              <div>
-                <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">My Role</p>
-                <h2 className="text-[22px] font-bold text-[#1a1a1a] mb-4">Contract Researcher over Four Months</h2>
-                <p className="text-[14px] text-[#555] leading-relaxed mb-4">
-                  As a quarter-time contract researcher, I worked closely with the core team while maintaining independence in research design and execution.
-                </p>
-                <p className="text-[14px] text-[#555] leading-relaxed">
-                  A unique aspect of this project was that I did not have access to the rowing machine itself, requiring close collaboration with the team to fill knowledge gaps about product functionality.
-                </p>
-              </div>
-              <div>
-                <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Responsibilities</p>
-                <ul className="space-y-3">
-                  {[
-                    "Led research planning and execution",
-                    "Conducted both qualitative and quantitative analysis",
-                    "Collaborated weekly with the COO, PM, Designer, and Data Analyst",
-                    "Maintained ongoing communication via Slack",
-                  ].map((item, i) => (
-                    <li key={item} className="text-[13px] text-[#555] flex gap-3">
-                      <span className="text-[10px] tracking-[0.1em] text-[#B8956A] font-medium flex-shrink-0 mt-0.5">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Reflections */}
-        <section className="py-16 border-b border-[#e5e5e5]">
+        {/* ── Research Process Reflections ─────────────────────────── */}
+        <section className="py-16 bg-[#f9f9f9] border-b border-[#e5e5e5]">
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="fade-up mb-10">
               <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Research Process Reflections</p>
@@ -292,7 +257,7 @@ export default function CaseStudy() {
                   num: "2",
                   title: "Data Quality",
                   challenges: ["Self-reported usage often differed from actual data"],
-                  learning: "Consider offering non-video interviews for participant comfort and set expectations upfront about why they were selected to participate.",
+                  learning: "Consider offering non-video interviews for participant comfort and set expectations upfront about why they were selected to participate, in situations where it would be beneficial to the research.",
                 },
                 {
                   num: "3",
@@ -303,7 +268,7 @@ export default function CaseStudy() {
               ].map((r, i) => (
                 <div
                   key={r.num}
-                  className="fade-up border border-[#e5e5e5] p-6"
+                  className="fade-up border border-[#e5e5e5] bg-white p-6"
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <div className="flex items-center gap-2 mb-3">
@@ -330,21 +295,41 @@ export default function CaseStudy() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-16 text-center">
+        {/* ── My Role — moved to last ───────────────────────────────── */}
+        <section className="py-16 border-b border-[#e5e5e5]">
           <div className="container mx-auto px-6 max-w-4xl">
-            <p className="text-[13px] text-[#999] mb-4">Interested in learning more about my work?</p>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase font-medium text-[#1a1a1a] hover:text-[#B8956A] transition-colors border-b border-[#1a1a1a] hover:border-[#B8956A] pb-0.5"
-            >
-              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Portfolio
-            </Link>
+            <div className="fade-up grid md:grid-cols-2 gap-12">
+              <div>
+                <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">My Role</p>
+                <p className="text-[14px] text-[#555] leading-relaxed mb-4">
+                  As a quarter-time contract researcher over four months, I led research planning and execution, conducted both qualitative and quantitative analysis, and collaborated weekly with the COO, PM, Designer, and Data Analyst.
+                </p>
+                <p className="text-[14px] text-[#555] leading-relaxed">
+                  A unique aspect of this project was that I didn't have access to the rowing machine itself, requiring close collaboration with the team to fill knowledge gaps about product functionality.
+                </p>
+              </div>
+              <div>
+                <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Responsibilities</p>
+                <ul className="space-y-3">
+                  {[
+                    "Led research planning and execution",
+                    "Conducted both qualitative and quantitative analysis",
+                    "Collaborated weekly with the COO, PM, Designer, and Data Analyst",
+                    "Maintained ongoing communication via Slack",
+                  ].map((item, i) => (
+                    <li key={item} className="text-[13px] text-[#555] flex gap-3">
+                      <span className="text-[10px] tracking-[0.1em] text-[#B8956A] font-medium flex-shrink-0 mt-0.5">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
+
       </div>
 
       <footer className="border-t border-[#e5e5e5] py-8">
