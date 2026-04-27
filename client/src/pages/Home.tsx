@@ -1,9 +1,10 @@
 /**
  * Home Page — Clean Editorial Minimal
  * Design: white bg, DM Sans, near-black text, sand accent on hover
- * Sections: Hero (name + tagline), Work (5 project cards), About, Case Study teaser
+ * Card order for recruiters: Overview → Outcome → My Role (expand)
+ * No company names — industry/sector tags only
  */
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -15,76 +16,80 @@ const projects = [
     id: "01",
     title: "Segmenting Professional Certification Customers",
     tags: ["Qualitative Research", "Customer Segmentation", "Interviews"],
-    client: "Adobe · Education",
+    sector: "Education · Software",
     overview:
-      "A product marketing team needed to understand their current and prospective customers for professional digital skills certification and their motivations for seeking certification.",
+      "A product marketing team needed to understand their current and prospective customers for professional digital skills certification and their motivations for seeking certification. This research aimed to inform customer targeting and improve the entire certification experience, from discovery to test completion.",
     outcome:
-      "Segmented customer groups based on career motivations and needs, identifying higher-value segments. Delivered actionable recommendations to enhance marketing strategy and improve the certification experience.",
+      "Through qualitative research, I segmented customer groups based on their career motivations and needs, identifying higher-value segments to focus on. Based on participant feedback, I also suggested several product improvements to enhance the overall certification experience. These findings equipped the team with actionable recommendations to enhance their marketing strategy and improve the certification experience.",
     role: [
-      "Conducted risk assessment through premortem workshop",
-      "Recruited participants and conducted 20 remote, semi-structured interviews",
-      "Synthesized findings into actionable opportunities",
-      "Presented insights to Product and Product Marketing teams",
+      "Conducted risk assessment and identified key research questions through premortem workshop.",
+      "Developed and implemented a research plan to explore customer motivations and needs.",
+      "Recruited participants and conducted 20 remote, semi-structured interviews with customers and prospects.",
+      "Synthesized findings into actionable opportunities and recommendations.",
+      "Presented insights to Product and Product Marketing teams.",
     ],
   },
   {
     id: "02",
     title: "Creating a Research Repository from Scratch",
     tags: ["Research Operations", "Training & Enablement", "Information Architecture"],
-    client: "PPG · Manufacturing",
+    sector: "Manufacturing",
     overview:
-      "A global manufacturing company needed a centralized research repository to share UX insights across the organization, enabling stakeholders to access and leverage research findings.",
+      "A global manufacturing company needed a centralized research repository to share UX insights across the organization. The initiative aimed to create a scalable system for the UX team to document their work while enabling stakeholders throughout the company to access and leverage research findings.",
     outcome:
-      "The UX team gained confidence documenting and organizing their work. Standardized templates and a tagging system made insights easily discoverable, while hands-on training ensured the team felt prepared.",
+      "Through implementing a research repository platform, the UX team gained confidence in documenting and organizing their work. The standardized templates and tagging system made insights easily discoverable, while the hands-on training ensured the team felt prepared to use the tool effectively in their daily work.",
     role: [
-      "Designed standardized project templates for User Interviews and Usability Tests",
-      "Created a structured system of tags and guidelines for organizing research insights",
-      "Developed and delivered a hands-on training series",
+      "Designed standardized project templates for User Interviews and Usability Tests.",
+      "Created a structured system of tags and guidelines to help teams organize and the company find research insights.",
+      "Developed and delivered a hands-on training series covering both tool functionality and research repository best practices.",
     ],
   },
   {
     id: "03",
     title: "Uncovering Why Customers Call Support",
     tags: ["Call Center Analysis", "AI-Assisted Analysis", "Communication Strategy"],
-    client: "Insurance Tech",
+    sector: "Insurance Tech · FinTech",
     overview:
-      "An insurance tech company sought to reduce call center volume related to Required Minimum Distributions (RMDs). Despite sending annual letters, call volume remained high.",
+      "A company was looking to reduce their call center volume related to RMDs — mandatory withdrawals that retirement account holders must take annually after age 73. Despite sending annual letters to notify customers about their RMD obligations, the company received a high volume of related phone calls. The initial assumption was that customers were confused about the concept of RMDs, and early attempts to clarify the explanation in these letters did not reduce call volume.",
     outcome:
-      "Analysis revealed the primary driver was not confusion about RMDs, but customers seeking confirmation their setup was correct — shifting the team's approach from education to personalized reassurance.",
+      "Analysis of call summaries revealed that the primary driver for RMD-related calls was not confusion about RMDs themselves, but rather customers seeking confirmation that their RMD setup was correct. This insight led to two key recommendations: revising outbound communications to provide greater clarity on individual customer setups and enhancing the existing customer portal to prominently display RMD information in an accessible format. The findings have already shifted internal understanding of customer needs from general education to personalized reassurance.",
     role: [
-      "Led research planning and execution with data, communications, and UX writing teams",
-      "Conducted hybrid analysis using manual review and AI-assisted processing",
-      "Synthesized findings and presented insights to inform future communication strategy",
+      "Led research planning and execution, collaborating with data, communications, and UX writing teams.",
+      "Conducted hybrid analysis of call center summaries using both manual review and AI-assisted processing (ChatGPT).",
+      "Synthesized findings and presented insights to internal stakeholders to inform future communication strategy.",
     ],
   },
   {
     id: "04",
     title: "Launching a 0 to 1 Digital Wellness Platform",
     tags: ["Market Research", "Usability Testing", "MVP Validation"],
-    client: "Consumer Goods",
+    sector: "Consumer Goods · Wellness",
     overview:
-      "A consumer goods company sought to bring Ayurvedic wellness to the US market through a digital product, from exploratory research through prototype testing of the MVP.",
+      "A consumer goods company sought to bring Ayurvedic wellness to the US market through a digital product. The project began with exploratory research to understand target segments and continued through prototype testing of the platform MVP. The research needed to both validate market opportunity and ensure the digital platform's usability for their target audience.",
     outcome:
-      "Helped the team develop a deeper understanding of how US consumers interact with Ayurvedic products. Usability testing of the MVP revealed key workflow improvements needed for launch.",
+      "Through multi-phase research, from initial market exploration to platform testing, I helped the team develop a deeper understanding of how US consumers think about and interact with Ayurvedic products. The research informed both product strategy and platform development, while subsequent usability testing of the MVP revealed key workflow improvements needed for launch.",
     role: [
-      "Led research planning from initial market exploration through usability testing",
-      "Conducted 20 in-depth interviews across diverse consumer segments",
-      "Designed and executed comprehensive usability testing of the MVP",
+      "Led research planning from initial market exploration through usability testing.",
+      "Conducted 20 in-depth interviews across diverse consumer segments to map needs, preferences, and market opportunities.",
+      "Designed and executed comprehensive usability testing of the MVP digital platform.",
+      "Provided recommendations for both product development and go-to-market strategy.",
     ],
   },
   {
     id: "05",
     title: "Understanding Online Game Facilitators' Needs",
     tags: ["Qualitative Research", "Thematic Analysis", "Product Strategy"],
-    client: "Virtual Gaming Platform",
+    sector: "Gaming · Tech",
     overview:
-      "A virtual tabletop gaming platform needed to understand the challenges and motivations of Game Masters (GMs), who lead gameplay and often drive purchase decisions.",
+      "A virtual platform for playing tabletop games like Dungeons & Dragons needed to understand the challenges and motivations of Game Masters (GMs), who play a key role in leading gameplay and often drive purchase decisions.",
     outcome:
-      "Identified GMs' core motivations: curating rewarding experiences, fostering collaborative storytelling, and creating social connections. Insights helped the product team prioritize feature development.",
+      "Through qualitative research, I identified GMs' core motivations: curating rewarding experiences, fostering collaborative storytelling, and creating social connections. I also uncovered pain points like organizational challenges during gameplay. These insights helped the product team prioritize feature development to better support GMs' needs.",
     role: [
-      "Recruited participants and conducted 12 remote, semi-structured interviews",
-      "Synthesized findings using thematic analysis",
-      "Collaborated with the client team to prioritize features based on research insights",
+      "Developed and implemented a research plan to explore Game Masters' needs and challenges.",
+      "Recruited participants and conducted 12 remote, semi-structured interviews with customers and prospects.",
+      "Synthesized findings into key motivations and pain points using thematic analysis.",
+      "Collaborated with the client team to prioritize features based on research insights.",
+      "Presented recommendations to inform product strategy.",
     ],
   },
 ];
@@ -100,26 +105,27 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       style={{ transitionDelay: `${index * 60}ms` }}
     >
       <div className="flex flex-col md:flex-row md:items-start md:gap-12">
-        {/* Left: number + client */}
+        {/* Left: number */}
         <div className="flex-shrink-0 md:w-20 mb-3 md:mb-0">
-          <span className="text-[11px] tracking-[0.12em] text-[#999] uppercase font-medium">
+          <span className="text-[11px] tracking-[0.12em] text-[#bbb] uppercase font-medium">
             {project.id}
           </span>
         </div>
 
         {/* Right: content */}
         <div className="flex-1 min-w-0">
+          {/* Title + sector */}
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
             <h3 className="text-[17px] font-semibold text-[#1a1a1a] leading-snug group-hover:text-[#B8956A] transition-colors">
               {project.title}
             </h3>
-            <span className="text-[11px] tracking-[0.08em] text-[#999] uppercase whitespace-nowrap flex-shrink-0 md:ml-6 mt-0.5">
-              {project.client}
+            <span className="text-[11px] tracking-[0.06em] text-[#aaa] whitespace-nowrap flex-shrink-0 md:ml-6 mt-0.5">
+              {project.sector}
             </span>
           </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-3">
+          <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag) => (
               <span
                 key={tag}
@@ -130,17 +136,32 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             ))}
           </div>
 
-          {/* Outcome */}
-          <p className="text-[14px] text-[#555] leading-relaxed mb-3">
-            {project.outcome}
-          </p>
+          {/* Overview — always visible */}
+          <div className="mb-3">
+            <p className="text-[10px] tracking-[0.15em] uppercase text-[#bbb] font-medium mb-1.5">
+              Overview
+            </p>
+            <p className="text-[14px] text-[#555] leading-relaxed">
+              {project.overview}
+            </p>
+          </div>
 
-          {/* Expand toggle */}
+          {/* Outcome — always visible, highlighted */}
+          <div className="mb-4">
+            <p className="text-[10px] tracking-[0.15em] uppercase text-[#bbb] font-medium mb-1.5">
+              Outcome
+            </p>
+            <p className="text-[14px] text-[#333] leading-relaxed font-medium">
+              {project.outcome}
+            </p>
+          </div>
+
+          {/* Expand toggle for My Role */}
           <button
             onClick={() => setOpen(!open)}
             className="text-[11px] tracking-[0.1em] uppercase font-medium text-[#B8956A] hover:text-[#9a7a54] transition-colors flex items-center gap-1.5"
           >
-            {open ? "Less" : "Overview & role"}
+            {open ? "Hide my role" : "My role"}
             <svg
               className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
               fill="none"
@@ -152,30 +173,20 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             </svg>
           </button>
 
-          {/* Expanded details */}
+          {/* Expanded: My Role */}
           {open && (
-            <div className="mt-5 pt-5 border-t border-[#f0f0f0] grid md:grid-cols-2 gap-8">
-              <div>
-                <p className="text-[10px] tracking-[0.15em] uppercase text-[#999] font-medium mb-2">
-                  Overview
-                </p>
-                <p className="text-[13px] text-[#555] leading-relaxed">
-                  {project.overview}
-                </p>
-              </div>
-              <div>
-                <p className="text-[10px] tracking-[0.15em] uppercase text-[#999] font-medium mb-2">
-                  My Role
-                </p>
-                <ul className="space-y-1.5">
-                  {project.role.map((r, i) => (
-                    <li key={i} className="text-[13px] text-[#555] leading-relaxed flex gap-2">
-                      <span className="text-[#B8956A] flex-shrink-0">—</span>
-                      <span>{r}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="mt-4 pt-4 border-t border-[#f0f0f0]">
+              <p className="text-[10px] tracking-[0.15em] uppercase text-[#bbb] font-medium mb-2">
+                My Role
+              </p>
+              <ul className="space-y-2">
+                {project.role.map((r, i) => (
+                  <li key={i} className="text-[13px] text-[#555] leading-relaxed flex gap-2">
+                    <span className="text-[#B8956A] flex-shrink-0 mt-0.5">—</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>
