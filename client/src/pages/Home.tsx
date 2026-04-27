@@ -15,8 +15,8 @@ const projects = [
   {
     id: "01",
     title: "Segmenting Professional Certification Customers",
-    tags: ["Qualitative Research", "Customer Segmentation", "Interviews"],
-    sector: "Education · Software",
+    tags: ["Semi-Structured Interviews", "Customer Segmentation", "Thematic Analysis"],
+    sector: "Education",
     overview:
       "A product marketing team needed to understand their current and prospective customers for professional digital skills certification and their motivations for seeking certification. This research aimed to inform customer targeting and improve the entire certification experience, from discovery to test completion.",
     outcome:
@@ -32,7 +32,7 @@ const projects = [
   {
     id: "02",
     title: "Creating a Research Repository from Scratch",
-    tags: ["Research Operations", "Training & Enablement", "Information Architecture"],
+    tags: ["Research Operations", "Information Architecture", "Training & Enablement"],
     sector: "Manufacturing",
     overview:
       "A global manufacturing company needed a centralized research repository to share UX insights across the organization. The initiative aimed to create a scalable system for the UX team to document their work while enabling stakeholders throughout the company to access and leverage research findings.",
@@ -47,7 +47,7 @@ const projects = [
   {
     id: "03",
     title: "Uncovering Why Customers Call Support",
-    tags: ["Call Center Analysis", "AI-Assisted Analysis", "Communication Strategy"],
+    tags: ["Call Center Analysis", "AI-Assisted Synthesis", "Mixed Methods"],
     sector: "Insurance",
     overview:
       "A company was looking to reduce their call center volume related to RMDs — mandatory withdrawals that retirement account holders must take annually after age 73. Despite sending annual letters to notify customers about their RMD obligations, the company received a high volume of related phone calls. The initial assumption was that customers were confused about the concept of RMDs, and early attempts to clarify the explanation in these letters did not reduce call volume.",
@@ -62,7 +62,7 @@ const projects = [
   {
     id: "04",
     title: "Launching a 0 to 1 Digital Wellness Platform",
-    tags: ["Market Research", "Usability Testing", "MVP Validation"],
+    tags: ["Exploratory Research", "Usability Testing", "Market Validation"],
     sector: "Health",
     overview:
       "A consumer goods company sought to bring Ayurvedic wellness to the US market through a digital product. The project began with exploratory research to understand target segments and continued through prototype testing of the platform MVP. The research needed to both validate market opportunity and ensure the digital platform's usability for their target audience.",
@@ -78,7 +78,7 @@ const projects = [
   {
     id: "05",
     title: "Understanding Online Game Facilitators' Needs",
-    tags: ["Qualitative Research", "Thematic Analysis", "Product Strategy"],
+    tags: ["Semi-Structured Interviews", "Thematic Analysis", "Feature Prioritization"],
     sector: "Virtual Tabletop",
     overview:
       "A virtual platform for playing tabletop games like Dungeons & Dragons needed to understand the challenges and motivations of Game Masters (GMs), who play a key role in leading gameplay and often drive purchase decisions.",
