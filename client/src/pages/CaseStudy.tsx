@@ -33,7 +33,7 @@ export default function CaseStudy() {
           </h1>
           {/* Method tags — replacing stats block */}
           <div className="flex flex-wrap gap-2">
-            {["Semi-Structured Interviews", "Data Analysis", "Survey"].map((tag) => (
+            {["Interviews", "Data Analysis", "Survey"].map((tag) => (
               <span
                 key={tag}
                 className="text-[10px] tracking-[0.08em] uppercase text-[#999] border border-[#e5e5e5] px-2.5 py-1"
@@ -121,7 +121,7 @@ export default function CaseStudy() {
               <div className="fade-up border border-[#e5e5e5] p-6" style={{ transitionDelay: "80ms" }}>
                 <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-3">Qualitative Research</h3>
                 <p className="text-[13px] text-[#555] leading-relaxed mb-3">
-                  Conducted 25 one-on-one semi-structured interviews — 11 with tricklers and 14 with low usage users. Sessions lasted 30–60 minutes, with participants compensated with $50 Amazon gift cards.
+                  Conducted 25 one-on-one semi-structured interviews — 11 with tricklers and 14 with low usage users. Sessions lasted 30–60 minutes, with participants compensated with Amazon gift cards.
                 </p>
                 <p className="text-[11px] tracking-[0.08em] uppercase text-[#bbb] font-medium mb-2">Interview Focus Areas</p>
                 <ul className="space-y-1">
