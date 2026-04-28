@@ -21,7 +21,7 @@ const projects = [
     title: "Segmenting Professional Certification Customers",
     tags: ["Interviews", "Customer Segmentation", "Thematic Analysis"],
     sector: "Education",
-    image: `/manus-storage/project-01-segmentation_59d639ed.png`,
+    image: `/allison-cassing-portfolio/images/project-01-segmentation.png`,
     overview:
       "A product marketing team needed to understand their current and prospective customers for professional digital skills certification and their motivations for seeking certification. This research aimed to inform customer targeting and improve the entire certification experience, from discovery to test completion.",
     outcome:
@@ -39,7 +39,7 @@ const projects = [
     title: "Creating a Research Repository from Scratch",
     tags: ["Research Operations", "Information Architecture", "Training & Enablement"],
     sector: "Manufacturing",
-    image: `/manus-storage/project-02-repository_314eba7e.png`,
+    image: `/allison-cassing-portfolio/images/project-02-repository.png`,
     overview:
       "A global manufacturing company needed a centralized research repository to share UX insights across the organization. The initiative aimed to create a scalable system for the UX team to document their work while enabling stakeholders throughout the company to access and leverage research findings.",
     outcome:
@@ -55,7 +55,7 @@ const projects = [
     title: "Uncovering Why Customers Call Support",
     tags: ["Call Center Analysis", "AI-Assisted Synthesis", "Mixed Methods"],
     sector: "Insurance",
-    image: `/manus-storage/project-03-fitness_4f7cd9d2.png`,
+    image: `/allison-cassing-portfolio/images/project-03-fitness.png`,
     overview:
       "A company was looking to reduce their call center volume related to RMDs — mandatory withdrawals that retirement account holders must take annually after age 73. Despite sending annual letters to notify customers about their RMD obligations, the company received a high volume of related phone calls. The initial assumption was that customers were confused about the concept of RMDs, and early attempts to clarify the explanation in these letters did not reduce call volume.",
     outcome:
@@ -71,7 +71,7 @@ const projects = [
     title: "Launching a 0 to 1 Digital Wellness Platform",
     tags: ["Generative Research", "Usability Testing", "Market Validation"],
     sector: "Health",
-    image: `/manus-storage/project-04-insurance_66a55012.png`,
+    image: `/allison-cassing-portfolio/images/project-04-insurance.png`,
     overview:
       "A consumer goods company sought to bring Ayurvedic wellness to the US market through a digital product. The project began with exploratory research to understand target segments and continued through prototype testing of the platform MVP. The research needed to both validate market opportunity and ensure the digital platform's usability for their target audience.",
     outcome:
@@ -88,7 +88,7 @@ const projects = [
     title: "Understanding Online Game Facilitators' Needs",
     tags: ["Interviews", "Thematic Analysis", "Feature Prioritization"],
     sector: "Virtual Tabletop",
-    image: `/manus-storage/project-05-gaming_722765db.png`,
+    image: `/allison-cassing-portfolio/images/project-05-gaming.png`,
     overview:
       "A virtual platform for playing tabletop games like Dungeons & Dragons needed to understand the challenges and motivations of Game Masters (GMs), who play a key role in leading gameplay and often drive purchase decisions.",
     outcome:
@@ -244,7 +244,7 @@ export default function Home() {
                 {/* Image */}
                 <div className="md:w-2/5 aspect-[4/3] md:aspect-auto overflow-hidden bg-[#f5f0e8]">
                   <img
-                    src="/manus-storage/case-study-fitness_1db36ea8.png"
+                    src="/allison-cassing-portfolio/images/case-study-fitness.png"
                     alt="Connected Fitness Case Study"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
