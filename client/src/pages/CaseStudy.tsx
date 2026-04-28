@@ -4,12 +4,18 @@
  * Content: exact language from slides
  * Structure: Overview & Outcomes → Approach → Key Findings → Recommendations → Reflections → My Role
  */
+import { useEffect } from "react";
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function CaseStudy() {
   const bodyRef = useScrollAnimation();
+
+  // Always start at the top when navigating to this page
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
