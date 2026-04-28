@@ -5,7 +5,7 @@
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 
-const RESUME_URL = "/manus-storage/acassing_resume26_9c3e3524.pdf";
+const RESUME_URL = "/AllisonCassing_Resume.pdf";
 
 export default function Resume() {
   return (
