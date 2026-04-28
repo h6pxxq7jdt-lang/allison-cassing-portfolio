@@ -20,32 +20,17 @@ export default function Navigation() {
 
   const isHome = location === "/";
   const isCaseStudy = location === "/case-study";
-  const isResume = location === "/resume";
-
-  // When navigating to home with a hash (e.g. /#about from resume page),
-  // scroll to the target element after the page mounts.
-  useEffect(() => {
-    if (isHome && window.location.hash) {
-      const hash = window.location.hash;
-      // Small delay to let the page render fully before scrolling
-      const timer = setTimeout(() => {
-        const el = document.querySelector(hash);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-      return () => clearTimeout(timer);
-    }
-  }, [isHome]);
 
   const homeLinks: NavLink[] = [
     { label: "Work", href: "#work" },
     { label: "About", href: "#about" },
-    { label: "Resume", href: "/resume" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/allison-cassing/", external: true },
   ];
 
   const subLinks: NavLink[] = [
     { label: "Work", href: "/" },
     { label: "About", href: "/#about" },
-    { label: "Resume", href: "/resume" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/allison-cassing/", external: true },
   ];
 
   const navLinks = isHome ? homeLinks : subLinks;
@@ -65,6 +50,17 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Handle hash navigation from other pages (e.g. /resume -> /#about)
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
@@ -81,9 +77,21 @@ export default function Navigation() {
             {navLinks.map((link) => {
               const isActive =
                 (link.href === "/" && isHome) ||
-                (link.href === "/resume" && isResume) ||
                 (link.href === "/case-study" && isCaseStudy);
 
+              if (link.external) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] tracking-[0.15em] uppercase font-medium transition-colors text-[#1a1a1a] hover:text-[#B8956A]"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
               if (link.href.startsWith("#")) {
                 return (
                   <button
@@ -143,7 +151,18 @@ export default function Navigation() {
         <div className="md:hidden border-t border-[#e5e5e5] bg-white">
           <div className="container mx-auto px-6 py-4 flex flex-col gap-1">
             {navLinks.map((link) =>
-              link.href.startsWith("#") ? (
+              link.external ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="py-2.5 text-[11px] tracking-[0.15em] uppercase font-medium text-[#1a1a1a] hover:text-[#B8956A] transition-colors border-b border-[#f0f0f0] last:border-0"
+                >
+                  {link.label}
+                </a>
+              ) : link.href.startsWith("#") ? (
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}

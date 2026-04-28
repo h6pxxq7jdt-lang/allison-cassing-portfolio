@@ -7,7 +7,6 @@ import PasswordGate from "./components/PasswordGate";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import CaseStudy from "./pages/CaseStudy";
-import Resume from "./pages/Resume";
 
 // Base path: /allison-cassing-portfolio in GitHub Pages, / in dev/Manus
 const BASE = import.meta.env.BASE_URL ?? "/";
@@ -18,7 +17,6 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/case-study" component={CaseStudy} />
-      <Route path="/resume" component={Resume} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
