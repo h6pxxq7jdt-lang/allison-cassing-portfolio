@@ -59,7 +59,7 @@ export default function CaseStudy() {
             <div className="fade-up">
               <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-4">Overview</p>
               <p className="text-[14px] text-[#555] leading-relaxed mb-4">
-                A connected fitness company launched a $2,000+ rowing machine with gamified workout software in May 2020. Several months after launch, they noticed concerning trends in workout metrics, with monthly usage per account declining steadily. The COO initiated research to understand:
+                A connected fitness company noticed concerning trends in workout metrics, with monthly usage per account declining steadily after launch. The COO initiated research to understand:
               </p>
               <ul className="space-y-1.5">
                 {[
@@ -112,14 +112,14 @@ export default function CaseStudy() {
               <div className="fade-up border border-[#e5e5e5] p-6" style={{ transitionDelay: "0ms" }}>
                 <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-3">Data Analysis & Segmentation</h3>
                 <p className="text-[13px] text-[#555] leading-relaxed mb-3">
-                  I began by defining and analyzing two key user segments:
+                  I began by analyzing usage data to define and understand two key user segments:
                 </p>
                 <ul className="space-y-2">
                   <li className="text-[12px] text-[#555] leading-relaxed">
-                    <span className="font-medium text-[#1a1a1a]">"Tricklers"</span> — Users who started strong but reduced usage over time. Defined as averaging 2+ workout days/week in the first four weeks, followed by less than 2 days/week in subsequent periods.
+                    <span className="font-medium text-[#1a1a1a]">&quot;Tricklers&quot;</span> — Users who started strong but reduced usage over time.
                   </li>
                   <li className="text-[12px] text-[#555] leading-relaxed">
-                    <span className="font-medium text-[#1a1a1a]">Low Usage Users</span> — Using the rower less than 30% of owned weeks; approximately 30% of total users.
+                    <span className="font-medium text-[#1a1a1a]">Low Usage Users</span> — Users who had consistently low engagement with the platform.
                   </li>
                 </ul>
               </div>
@@ -127,7 +127,7 @@ export default function CaseStudy() {
               <div className="fade-up border border-[#e5e5e5] p-6" style={{ transitionDelay: "80ms" }}>
                 <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-3">Qualitative Research</h3>
                 <p className="text-[13px] text-[#555] leading-relaxed mb-3">
-                  Conducted 25 one-on-one semi-structured interviews — 11 with tricklers and 14 with low usage users. Sessions lasted 30–60 minutes, with participants compensated with Amazon gift cards.
+                  Conducted one-on-one interviews with both tricklers and low usage users, exploring their fitness routines, experiences with the platform, and barriers to engagement.
                 </p>
                 <p className="text-[11px] tracking-[0.08em] uppercase text-[#bbb] font-medium mb-2">Interview Focus Areas</p>
                 <ul className="space-y-1">
@@ -148,7 +148,7 @@ export default function CaseStudy() {
               <div className="fade-up border border-[#e5e5e5] p-6" style={{ transitionDelay: "160ms" }}>
                 <h3 className="text-[13px] font-semibold text-[#1a1a1a] mb-3">Quantitative Validation</h3>
                 <p className="text-[13px] text-[#555] leading-relaxed mb-4">
-                  Developed a survey to validate interview findings across the larger low usage population. Despite low response rates (2%), the data provided directional insights for prioritization.
+                  Developed a survey to validate interview findings across the broader low usage population. The data provided directional insights for prioritization.
                 </p>
                 <div className="pt-4 border-t border-[#f0f0f0]">
                   <p className="text-[11px] tracking-[0.08em] uppercase text-[#B8956A] font-medium mb-1">Note on Agility</p>
