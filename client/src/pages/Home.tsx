@@ -248,47 +248,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Case Study Teaser ─────────────────────────────────────────── */}
+      {/* ── Case Study Card ────────────────────────────────────────────── */}
       <section ref={caseRef} className="py-24 bg-[#f9f9f9]">
         <div className="container mx-auto px-6 max-w-5xl">
-          <div className="fade-up">
-            <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium mb-6">
+          <div className="fade-up mb-8">
+            <p className="text-[11px] tracking-[0.15em] uppercase text-[#999] font-medium">
               Case Study
             </p>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div>
-                <h2 className="text-[28px] md:text-[36px] font-bold text-[#1a1a1a] leading-tight mb-3">
-                  Understanding Connected Fitness Drop-Off
-                </h2>
-                <p className="text-[14px] text-[#666] leading-relaxed max-w-xl">
-                  A connected fitness company noticed monthly usage per account declining steadily
-                  after launch. I led a three-phase research effort — data segmentation, 25
-                  qualitative interviews, and a quantitative survey — to understand why.
-                </p>
-                <div className="flex gap-8 mt-6">
-                  {[
-                    { value: "25", label: "Interviews" },
-                    { value: "3", label: "Research Phases" },
-                    { value: "4 mo", label: "Engagement" },
-                  ].map((s) => (
-                    <div key={s.label}>
-                      <div className="text-[22px] font-bold text-[#1a1a1a]">{s.value}</div>
-                      <div className="text-[10px] tracking-[0.1em] uppercase text-[#999] mt-0.5">{s.label}</div>
+          </div>
+          {/* Full-width clickable card */}
+          <Link href="/case-study" className="block group">
+            <div className="fade-up border border-[#e8e8e8] bg-white hover:shadow-md transition-shadow duration-300 overflow-hidden">
+              <div className="grid md:grid-cols-2">
+                {/* Left: image */}
+                <div className="overflow-hidden aspect-[3/2] md:aspect-auto bg-[#f5f5f5]">
+                  <img
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663602431604/Q6uMhoERvhZVBV5BAGKn9S/case-study-fitness-JQwiHA7Burcw8Eo34oaVCc.webp"
+                    alt="Connected Fitness Drop-Off Case Study"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  />
+                </div>
+                {/* Right: content */}
+                <div className="p-8 md:p-10 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[10px] tracking-[0.14em] text-[#bbb] uppercase font-medium">Deep Dive</span>
+                      <span className="text-[10px] tracking-[0.06em] text-[#aaa]">Connected Fitness</span>
                     </div>
-                  ))}
+                    <h2 className="text-[22px] md:text-[26px] font-bold text-[#1a1a1a] leading-tight mb-4 group-hover:text-[#B8956A] transition-colors">
+                      Understanding Connected Fitness Drop-Off
+                    </h2>
+                    <p className="text-[13px] text-[#555] leading-relaxed mb-6">
+                      A connected fitness company noticed monthly usage per account declining steadily
+                      after launch. I led a multi-method research effort to understand why — and what
+                      the company could do about it.
+                    </p>
+                    {/* Method tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-8">
+                      {["Data Analysis", "Interviews", "Survey"].map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[9px] tracking-[0.08em] uppercase text-[#999] border border-[#e5e5e5] px-2 py-0.5"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  {/* CTA */}
+                  <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase font-medium text-[#1a1a1a] group-hover:text-[#B8956A] transition-colors border-b border-[#1a1a1a] group-hover:border-[#B8956A] pb-0.5 w-fit">
+                    Read Case Study
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-              <Link
-                href="/case-study"
-                className="inline-flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase font-medium text-[#1a1a1a] hover:text-[#B8956A] transition-colors whitespace-nowrap border-b border-[#1a1a1a] hover:border-[#B8956A] pb-0.5"
-              >
-                Read Case Study
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 

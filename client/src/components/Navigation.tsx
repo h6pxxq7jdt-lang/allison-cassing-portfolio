@@ -22,6 +22,20 @@ export default function Navigation() {
   const isCaseStudy = location === "/case-study";
   const isResume = location === "/resume";
 
+  // When navigating to home with a hash (e.g. /#about from resume page),
+  // scroll to the target element after the page mounts.
+  useEffect(() => {
+    if (isHome && window.location.hash) {
+      const hash = window.location.hash;
+      // Small delay to let the page render fully before scrolling
+      const timer = setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isHome]);
+
   const homeLinks: NavLink[] = [
     { label: "Work", href: "#work" },
     { label: "About", href: "#about" },
